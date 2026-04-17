@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Услуги — Уролог Сакенов Ерлан Дауренбекович</title>
+  <meta name="description" content="Ударно-волновая литотрипсия, диагностика почек, первичная консультация уролога в Алматы. Цены и подробное описание услуг."/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+  /* services-specific */
+  .svc-block { 
+    background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+    border: 1px solid rgba(255,122,0,0.1);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 80px;
+    box-shadow: 0 4px 20px rgba(11,31,58,0.08);
+    transition: all 0.3s ease;
+  }
+  .svc-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(11,31,58,0.12);
+    border-color: rgba(255,122,0,0.2);
+  }
+  .svc-block:last-child { margin-bottom: 0; }
+  .svc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .svc-row.rev { direction: rtl; }
+  .svc-row.rev > * { direction: ltr; }
+
+  .svc-visual {
+    border-radius: 20px; overflow: hidden;
+    background: linear-gradient(145deg,#e6ecf5,#cdd5e4);
+    height: 380px; display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 14px; text-align: center;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(11,31,58,0.15);
+    transition: all 0.3s ease;
+  }
+  .svc-visual:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 40px rgba(11,31,58,0.2);
+  }
+  .svc-vis-tag { position: absolute; bottom: 20px; left: 20px; background: var(--navy); color: #fff; font-size: 13px; font-weight: 600; padding: 10px 16px; border-radius: 10px; }
+
+  .svc-num { font-family: var(--fd); font-size: 72px; font-weight: 700; color: rgba(255,122,0,.07); line-height: 1; margin-bottom: -12px; }
+  .svc-info h3 { font-family: var(--fd); font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 14px; line-height: 1.2; }
+  .svc-info > p { color: var(--muted); line-height: 1.8; margin-bottom: 14px; }
+
+  .feat-list { list-style: none; margin: 18px 0 26px; }
+  .feat-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--text); margin-bottom: 10px; line-height: 1.5; }
+  .feat-list li::before { content: '✓'; width: 20px; height: 20px; background: rgba(255,122,0,.1); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .price-row { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    margin-top: 32px; 
+    padding-top: 24px; 
+    border-top: 1px solid rgba(255,122,0,0.1);
+  }
+  .price-card {
+    background: linear-gradient(135deg, rgba(255,122,0,0.08) 0%, rgba(255,122,0,0.04) 100%);
+    border: 1px solid rgba(255,122,0,0.2);
+    border-radius: 16px;
+    padding: 20px 24px;
+    min-width: 280px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .price-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255,122,0,0.15);
+    border-color: var(--accent);
+  }
+  .price-amount {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .price-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .divider { border: none; border-top: 1px solid var(--line); margin: 80px 0; }
+
+  /* FAQ */
+  .faq-wrap { max-width: 760px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--line); }
+  .faq-btn {
+    width: 100%; background: none; border: none; padding: 22px 0;
+    display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; font-family: var(--fb); font-size: 16px; font-weight: 600;
+    color: var(--navy); text-align: left; gap: 16px; transition: color .2s;
+  }
+  .faq-btn:hover { color: var(--accent); }
+  .faq-ico { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--line); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all .25s; }
+  .faq-ico svg { transition: transform .25s; }
+  .faq-item.open .faq-ico { border-color: var(--accent); background: rgba(255,122,0,.08); }
+  .faq-item.open .faq-ico svg { transform: rotate(45deg); }
+  .faq-body { max-height: 0; overflow: hidden; transition: max-height .32s ease; }
+  .faq-item.open .faq-body { max-height: 300px; }
+  .faq-body p { padding-bottom: 20px; color: var(--muted); line-height: 1.78; }
+
+  @media (max-width:900px) {
+    .svc-row, .svc-row.rev { grid-template-columns: 1fr; direction: ltr; gap: 36px; }
+    .svc-visual { height: 260px; }
+  }
+  </style>
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="index.html" class="logo"><img src="images/WhatsApp Image 2026-03-22 at 16.48.15 (1).jpeg" alt="Логотип клиники" style="height: 40px; margin-right: 8px; border-radius: 8px;"><span class="logo-t"></span></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-lang="nav.home">Главная</a>
+      <a href="services.html" class="act" data-lang="nav.services">Услуги</a>
+      <a href="about.html" data-lang="nav.about">О враче</a>
+      <a href="contacts.html" data-lang="nav.contacts">Контакты</a>
+    </nav>
+    <div class="hdr-btns">
+      <a href="tel:+77001234567" class="btn btn-gh" data-lang="nav.call">Позвонить</a>
+      <a href="contacts.html" class="btn btn-or" data-lang="nav.book">Записаться</a>
+    </div>
+    <button class="brg" id="brg" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="ph">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html" data-lang="ph.crumb.home">Главная</a><span>/</span><span style="color:rgba(255,255,255,.65)" data-lang="ph.crumb.services">Услуги</span></div>
+    <div class="lbl" data-lang="ph.services.lbl">Услуги</div>
+    <h1 class="h1"><span data-lang="ph.services.h1a">спектр</span><br><span data-lang="ph.services.h1b">урологических услуг</span></h1>
+    <p class="sub" data-lang="ph.services.sub">От первичной консультации до современных методов лечения мочекаменной болезни</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+
+    <!-- 01 Литотрипсия -->
+    <div class="svc-block">
+      <div class="svc-row fu">
+        <div class="svc-info">
+          <div class="svc-num">01</div>
+          <div class="lbl" data-lang="svc.page.1.lbl">Основная услуга</div>
+          <h3 data-lang="svc.page.1.h3">Ударно-волновая литотрипсия</h3>
+          <p data-lang="svc.page.1.p1">Литотрипсия — «золотой стандарт» лечения мочекаменной болезни. Высокоэнергетические звуковые волны дробят камень на мелкие фрагменты, которые выходят из организма естественным путём.</p>
+          <p data-lang="svc.page.1.p2">Процедура полностью неинвазивна: без разрезов, без анестезии, без госпитализации. В тот же день вы уходите домой.</p>
+          <ul class="feat-list">
+            <li data-lang="svc.page.1.f1">Камни в почках и мочеточниках до 20 мм</li>
+            <li data-lang="svc.page.1.f2">Без наркоза и госпитализации</li>
+            <li data-lang="svc.page.1.f3">Длительность процедуры 30–60 минут</li>
+            <li data-lang="svc.page.1.f4">Возврат к обычной жизни через 1–2 часа</li>
+            <li data-lang="svc.page.1.f5">Эффективность 95–98%</li>
+          </ul>
+          <div class="price-row">
+            <div class="price-card">
+              <div class="price-amount" data-lang="svc.page.1.price">определяется после консультации</div>
+              <div class="price-desc" data-lang="svc.page.1.pdesc">Стоимость зависит от сложности случая</div>
+            </div>
+            <a href="contacts.html" class="btn btn-or" data-lang="nav.book">Записаться</a>
+          </div>
+        </div>
+        <div class="svc-visual">
+          <img src="images/sdde.jpg" alt="Литотрипсия процедура" style="width: 100%; height: 100%; object-fit: contain; border-radius: 20px;">
+          <div class="svc-vis-tag" data-lang="svc.page.1.tag">✓ Без операции</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- 02 Диагностика -->
+    <div class="svc-block">
+      <div class="svc-row rev fu">
+        <div class="svc-info">
+          <div class="svc-num">02</div>
+          <div class="lbl" data-lang="svc.page.2.lbl">Диагностика</div>
+          <h3 data-lang="svc.page.2.h3">УЗИ и диагностика почек</h3>
+          <p data-lang="svc.page.2.p1">Комплексная диагностика позволяет точно определить наличие, размер и расположение камней в почках, мочеточниках и мочевом пузыре.</p>
+          <p data-lang="svc.page.2.p2">На основе результатов составляется индивидуальный план лечения с учётом особенностей организма.</p>
+          <ul class="feat-list">
+            <li data-lang="svc.page.2.f1">УЗИ почек, мочевого пузыря, простаты</li>
+            <li data-lang="svc.page.2.f2">Оценка функции и состояния почек</li>
+            <li data-lang="svc.page.2.f3">Разбор ваших анализов и снимков</li>
+            <li data-lang="svc.page.2.f4">Результат сразу на приёме</li>
+          </ul>
+          <div class="price-row">
+            <div class="price-card">
+              <div class="price-amount" data-lang="svc.page.2.price">10 000 ₸</div>
+              <div class="price-desc" data-lang="svc.page.2.pdesc">Полная диагностика почек</div>
+            </div>
+            <a href="contacts.html" class="btn btn-or" data-lang="nav.book">Записаться</a>
+          </div>
+        </div>
+        <div class="svc-visual">
+          <video width="100%" height="100%" controls style="border-radius: 20px; object-fit: contain;">
+            <source src="images/WhatsApp Video 2026-03-25 at 09.15.06.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+          </video>
+          <div class="svc-vis-tag" data-lang="svc.page.2.tag">✓ Результат сразу</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- 03 Консультация -->
+    <div class="svc-block">
+      <div class="svc-row fu">
+        <div class="svc-info">
+          <div class="svc-num">03</div>
+          <div class="lbl" data-lang="svc.page.3.lbl">Консультация</div>
+          <h3 data-lang="svc.page.3.h3">Первичная консультация уролога</h3>
+          <p data-lang="svc.page.3.p1">Тщательный осмотр, сбор анамнеза, разбор всех имеющихся анализов и снимков. Вы получаете чёткий ответ о вашем состоянии и персональный план лечения.</p>
+          <p data-lang="svc.page.3.p2">Никаких общих рекомендаций — только индивидуальный подход и понятные объяснения.</p>
+          <ul class="feat-list">
+            <li data-lang="svc.page.3.f1">Полный осмотр и сбор анамнеза</li>
+            <li data-lang="svc.page.3.f2">Разбор всех ваших анализов и снимков</li>
+            <li data-lang="svc.page.3.f3">Составление плана лечения</li>
+            <li data-lang="svc.page.3.f4">Рекомендации по профилактике рецидивов</li>
+            <li data-lang="svc.page.3.f5">Длительность приёма 30–45 минут</li>
+          </ul>
+          <div class="price-row">
+            <div class="price-card">
+              <div class="price-amount" data-lang="svc.page.3.price">10 000 – 15 000 ₸</div>
+              <div class="price-desc" data-lang="svc.page.3.pdesc">Персональный план лечения</div>
+            </div>
+            <a href="contacts.html" class="btn btn-or" data-lang="nav.book">Записаться</a>
+          </div>
+        </div>
+        <div class="svc-visual">
+          <img src="images\WhatsApp Image 2026-03-27 at 17.56.54.jpeg" alt="Консультация уролога" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+          <div class="svc-vis-tag" data-lang="svc.page.3.tag">✓ Личный план</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec-w">
+  <div class="wrap">
+    <div class="tc sh fu"><div class="lbl" data-lang="lbl.faq">FAQ</div><h2 class="h2" data-lang="faq.h2">Частые вопросы</h2><p class="sub" data-lang="faq.sub">Ответы на вопросы, которые задают пациенты чаще всего</p></div>
+    <div class="faq-wrap">
+      <div class="faq-item fu">
+        <button class="faq-btn"><span data-lang="faq.1.q">Больно ли делать литотрипсию?</span><div class="faq-ico"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div></button>
+        <div class="faq-body"><p>Процедура переносится комфортно.<br>Во время ДУВЛ используется обезболивание. Пациент может ощущать лёгкие покалывание на коже или дискомфорт, но сильной боли обычно нет. После процедуры возможны умеренные тянущие ощущения в пояснице.</p></div>
+      </div>
+      <div class="faq-item fu" style="--dl:.05s">
+        <button class="faq-btn"><span data-lang="faq.2.q">Сколько сеансов потребуется?</span><div class="faq-ico"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div></button>
+        <div class="faq-body"><p>В большинстве случаев требуется 1 сеанс.<br>Если камень крупный или плотный, может понадобиться 2–3 процедуры для полного дробления.</p></div>
+      </div>
+      <div class="faq-item fu" style="--dl:.1s">
+        <button class="faq-btn"><span data-lang="faq.3.q">Есть ли противопоказания?</span><div class="faq-ico"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div></button>
+        <div class="faq-body"><p>Да, как и у любой медицинской процедуры. Основные противопоказания:<br>
+          •	беременность<br>
+          •	нарушение свертываемости крови<br>
+          •	острое воспаление почек<br>
+          •	очень большой камень<br><br>
+          Решение принимается после обследования.</p></div>
+      </div>
+      <div class="faq-item fu" style="--dl:.15s">
+        <button class="faq-btn"><span data-lang="faq.4.q">Как подготовиться к процедуре?</span><div class="faq-ico"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div></button>
+        <div class="faq-body"><p>Перед процедурой необходимо:<br>
+          •	сдать анализы крови и мочи<br>
+          •	сделать УЗИ или КТ<br>
+          •	за 3–4 часа не принимать пищу<br>
+          • за час до сеанса выпить 1.5 литра воды!<br><br>
+          Точные рекомендации врач даст на консультации.</p></div>
+      </div>
+      <div class="faq-item fu" style="--dl:.2s">
+        <button class="faq-btn"><span data-lang="faq.5.q">Когда выйдут камни после процедуры?</span><div class="faq-ico"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div></button>
+        <div class="faq-body"><p>Фрагменты камня начинают выходить обычно через 1–3 дня после процедуры.<br>Полное очищение мочевых путей может занять от нескольких дней до 2–3 недель, в зависимости от размера и расположения камня.<br><br>
+          Иногда выход сопровождается:<br>
+          •	учащённым мочеиспусканием<br>
+          •	тянущими болями<br>
+          •	небольшим количеством крови в моче<br><br>
+          Это нормальная реакция после дробления.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:0 0 96px">
+  <div class="wrap">
+    <div class="cta-box fu">
+      <div class="cta-box-in">
+        <div class="lbl lbl-lt" data-lang="cta.1.lbl">Запись</div>
+        <h2 class="cta-ttl" data-lang="cta.3.h2">Готовы начать лечение?</h2>
+        <p class="cta-sub" data-lang="cta.3.sub">Запишитесь на консультацию — подберём оптимальный метод именно для вас.</p>
+        <div class="cta-row">
+          <a href="contacts.html" class="btn btn-or btn-lg" data-lang="cta.3.online">Записаться онлайн</a>
+          <a href="https://wa.me/77001234567" target="_blank" class="btn btn-wa btn-lg"><svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-g">
+      <div><a href="index.html" class="logo"><img src="images/WhatsApp Image 2026-03-22 at 16.48.15 (1).jpeg" alt="Логотип клиники" style="height: 40px; margin-right: 8px; border-radius: 8px;"><span class="logo-t">Уролог<em>Про</em></span></a><p class="ftr-desc" data-lang="ftr.desc">Современное лечение мочекаменной болезни без операций. Ударно-волновая литотрипсия в Алматы.</p></div>
+      <div class="ftr-col"><h5 data-lang="ftr.nav.title">Навигация</h5><a href="index.html" data-lang="nav.home">Главная</a><a href="services.html" data-lang="nav.services">Услуги</a><a href="about.html" data-lang="nav.about">О враче</a><a href="contacts.html" data-lang="nav.contacts">Контакты</a></div>
+      <div class="ftr-col"><h5 data-lang="ftr.svc.title">Услуги</h5><a href="services.html" data-lang="ftr.svc.1">Литотрипсия</a><a href="services.html" data-lang="ftr.svc.2">Диагностика</a><a href="services.html" data-lang="ftr.svc.3">Консультация</a></div>
+      <div class="ftr-col"><h5 data-lang="ftr.con.title">Контакты</h5><a href="tel:+77772440000">+7 (777) 244-00-00</a><a href="https://wa.me/77772440000" target="_blank">WhatsApp</a><a href="contacts.html" data-lang="con.addr.val">г. Алматы, Карасай Батыра 152, 10 этаж, кабинет 1005</a></div>
+    </div>
+    <div class="ftr-bot">
+      <p class="ftr-copy" data-lang="ftr.copy1">© 2024 Сакенов Ерлан Дауренбекович. Все права защищены.</p>
+      <p class="ftr-copy" data-lang="ftr.copy2">Пн–Пт 9:00–18:00 · Сб 9:00–14:00</p>
+      <a href="https://share.google/wxDigkNDbM6Hf5PQi" target="_blank" class="sundet-link" title="Поделиться в sundet.kz">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="#0B1F3A" stroke-width="2"/>
+          <path d="M12 8v8m-4-4h8" stroke="#0B1F3A" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>sundet.kz</span>
+      </a>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/77772440000" target="_blank" class="wa-btn" aria-label="WhatsApp"><svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script src="main.js"></script>
+<script src="lang.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>О враче — Сакенов Ерлан Дауренбекович, уролог</title>
+  <meta name="description" content="Сакенов Ерлан Дауренбекович — уролог-андролог высшей категории, специалист по ударно-волновой литотрипсии. Более 15 лет опыта, 5000+ пациентов."/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+  /* about-specific */
+  .ab-row { display: grid; grid-template-columns: 1fr 1.5fr; gap: 72px; align-items: start; }
+
+  .photo-col { position: relative; padding-top: 32px; }
+  .photo-bg  { position: absolute; top: 0; left: 20px; width: 88%; height: 94%; background: linear-gradient(135deg,rgba(255,122,0,.1),rgba(11,31,58,.08)); border-radius: 20px; }
+  .photo-img { position: relative; height: 500px; background: linear-gradient(145deg,#e6ecf5,#cdd5e4); border-radius: 18px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 14px; text-align: center; }
+  .photo-tag { position: absolute; bottom: -18px; right: -18px; background: var(--navy); color: #fff; font-size: 13px; font-weight: 600; padding: 13px 18px; border-radius: 12px; display: flex; align-items: center; gap: 8px; box-shadow: var(--s-md); }
+
+  .ab-role   { font-size: 15px; color: var(--accent); font-weight: 500; margin-bottom: 20px; }
+  .ab-body p { color: var(--muted); line-height: 1.82; margin-bottom: 16px; }
+
+  .ab-stats  { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin: 32px 0; }
+  .ab-stat   { background: var(--bg); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; text-align: center; }
+  .ab-stat-n { font-family: var(--fd); font-size: 30px; font-weight: 700; color: var(--navy); }
+  .ab-stat-l { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  /* timeline */
+  .tl { list-style: none; margin-top: 8px; }
+  .tl-item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-year  { font-family: var(--fd); font-size: 15px; font-weight: 700; color: var(--accent); min-width: 48px; padding-top: 2px; }
+  .tl-ttl   { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+  .tl-sub   { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* values */
+  .val-g { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .val-c { background: var(--white); border: 1px solid var(--line); border-radius: var(--r); padding: 30px; text-align: center; transition: all .3s; }
+  .val-c:hover { transform: translateY(-4px); box-shadow: var(--s-md); }
+  .val-ic { width: 56px; height: 56px; background: rgba(255,122,0,.08); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .val-c h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .val-c p  { font-size: 14px; color: var(--muted); line-height: 1.72; }
+
+  /* ─── CERTIFICATES ─── */
+  .cert-g {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .cert-c {
+    aspect-ratio: 3/4;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(11,31,58,.10);
+    transition: transform .3s, box-shadow .3s;
+    cursor: pointer;
+  }
+  .cert-c:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(11,31,58,.14);
+  }
+
+  @media (max-width:900px) {
+    .ab-row { grid-template-columns: 1fr; }
+    .photo-col { display: none; }
+    .val-g { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width:540px) {
+    .ab-stats { grid-template-columns: 1fr 1fr; }
+    .val-g { grid-template-columns: 1fr; }
+    .cert-g { grid-template-columns: 1fr 1fr; }
+  }
+  </style>
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="index.html" class="logo"><img src="images/WhatsApp Image 2026-03-22 at 16.48.15 (1).jpeg" alt="Логотип клиники" style="height: 40px; margin-right: 8px; border-radius: 8px;"><span class="logo-t"></span></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-lang="nav.home">Главная</a>
+      <a href="services.html" data-lang="nav.services">Услуги</a>
+      <a href="about.html" class="act" data-lang="nav.about">О враче</a>
+      <a href="contacts.html" data-lang="nav.contacts">Контакты</a>
+    </nav>
+    <div class="hdr-btns">
+      <a href="tel:+77001234567" class="btn btn-gh" data-lang="nav.call">Позвонить</a>
+      <a href="contacts.html" class="btn btn-or" data-lang="nav.book">Записаться</a>
+    </div>
+    <button class="brg" id="brg" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="ph">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html" data-lang="ph.crumb.home">Главная</a><span>/</span><span style="color:rgba(255,255,255,.65)" data-lang="ph.crumb.about">О враче</span></div>
+    <div class="lbl" data-lang="ph.about.lbl">О враче</div>
+    <h1 class="h1" data-lang="ph.about.h1">Сакенов Ерлан Дауренбекович</h1>
+    <p class="sub" data-lang="ph.about.sub">Уролог-андролог · Специалист ударно – волновой литотрипсии · Врач УЗИ · Врач высшей категории MD</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    
+    <div class="ab-hero fu" style="--dl:.1s">
+      <div class="ab-hero-img">
+        <img src="images/WhatsApp Image 2026-03-23 at 17.00.14.jpeg" alt="Сакенов Ерлан Дауренбекович">
+        <div class="ab-hero-tag"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="white" stroke-width="2"/></svg data-lang="ab.tag">Врач высшей категории</div>
+      </div>
+      <div class="ab-hero-content">
+        <div class="lbl" data-lang="lbl.biography">Биография</div>
+        <h2 class="h2" data-lang="ab.h2">Профессиональный путь</h2>
+        <div class="ab-role" data-lang="ab.role">Уролог-андролог · Специалист по ударно-волновой литотрипсии · Врач УЗИ · Врач высшей категории MD</div>
+        <p data-lang="ab.p1">Ведение уроандрологических пациентов широкого профиля с использованием международных стандартов и протоколов диагностики и лечения. Ультразвуковая диагностика мягких тканей, шеи, плевральных полостей, органов брюшной полости, малого таза, мочеполовых органов.</p>
+        <p data-lang="ab.p2">Владение ударно – волновой литотрипсией. Дробление камней в почках и МВП методом ДУВЛ. Хирургическая коррекция гидроцеле, варикоцелэктомия(операция Мармара), циркумцизио( Gomco clamp Plastibell), троакорная эпицистостомия, цистоскопия.</p>
+        <p data-lang="ab.p3">Общемедицинский стаж работы – 15 лет. Регулярное участие в международных конференциях и повышение квалификации в ведущих клиниках.</p>
+        
+        <div class="ab-stats">
+          <div class="ab-stat"><div class="ab-stat-n" data-c="15">15+</div><div class="ab-stat-l" data-lang="ab.stat1.label">лет стажа</div></div>
+          <div class="ab-stat"><div class="ab-stat-n" data-c="5000">5000+</div><div class="ab-stat-l" data-lang="ab.stat2.label">пациентов</div></div>
+          <div class="ab-stat"><div class="ab-stat-n" data-c="98">98%</div><div class="ab-stat-l" data-lang="ab.stat3.label">эффективность</div></div>
+        </div>
+      </div>
+    </div>
+
+      <div class="lbl" data-lang="ab.edu.lbl">Образование и опыт</div>
+      <ul class="tl">
+        <li class="tl-item"><span class="tl-year">1998-2006</span><div><p class="tl-ttl" data-lang="ab.tl.1.title">Казахский Государственный Медицинский Университет им. Асфендиярова С.Д.</p><p class="tl-sub" data-lang="ab.tl.1.sub">Факультет лечебный, г. Алматы</p></div></li>
+        <li class="tl-item"><span class="tl-year">2000-2001</span><div><p class="tl-ttl" data-lang="ab.tl.2.title">Языковая школа UCLA</p><p class="tl-sub" data-lang="ab.tl.2.sub">USA Лос-Анджелес</p></div></li>
+        <li class="tl-item"><span class="tl-year">2006-2007</span><div><p class="tl-ttl" data-lang="ab.tl.3.title">Интернатура по специальности урология</p><p class="tl-sub" data-lang="ab.tl.3.sub">Казахстанский Медицинский Университет, г.Алматы</p></div></li>
+        <li class="tl-item"><span class="tl-year">2007-2009</span><div><p class="tl-ttl" data-lang="ab.tl.4.title">Клиническая ординатура</p><p class="tl-sub" data-lang="ab.tl.4.sub">Научный Центр Урологии им. Джарбусынова Б.У.</p></div></li>
+        <li class="tl-item"><span class="tl-year">2012</span><div><p class="tl-ttl" data-lang="ab.tl.5.title">Первичная специлизация по «лучевой- ультразвуковой диагностики»</p><p class="tl-sub" data-lang="ab.tl.5.sub">АГИУВ</p></div></li>
+        <li class="tl-item"><span class="tl-year">2017</span><div><p class="tl-ttl" data-lang="ab.tl.6.title">Магистратура</p><p class="tl-sub" data-lang="ab.tl.6.sub">КазНУ им Аль-Фараби мед.факультет высшая школа общественного здравоохранения</p></div></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="sec sec-w">
+  <div class="wrap">
+    <div class="tc sh fu"><div class="lbl" data-lang="lbl.values">Принципы</div><h2 class="h2" data-lang="val.h2">Как я работаю</h2><p class="sub" data-lang="val.sub">Три принципа, которыми руководствуюсь в работе с каждым пациентом</p></div>
+    <div class="val-g">
+      <div class="val-c fu">
+        <div class="val-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="#FF7A00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 data-lang="val.1.title">Доказательная медицина</h3>
+        <p data-lang="val.1.text">Использую только методы с доказанной эффективностью. Никакого «авось» — только клинически подтверждённые решения.</p>
+      </div>
+      <div class="val-c fu" style="--dl:.1s">
+        <div class="val-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="#FF7A00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 data-lang="val.2.title">Индивидуальный подход</h3>
+        <p data-lang="val.2.text">Каждый пациент уникален. Схема лечения составляется персонально с учётом вашего состояния и образа жизни.</p>
+      </div>
+      <div class="val-c fu" style="--dl:.2s">
+        <div class="val-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke="#FF7A00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 data-lang="val.3.title">Открытость и честность</h3>
+        <p data-lang="val.3.text">Объясняю диагноз понятным языком. Всегда честно говорю о прогнозах и отвечаю на все вопросы без ограничений.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section class="sec sec-w">
+  <div class="wrap">
+    <div class="tc sh fu"><div class="lbl" data-lang="lbl.docs">Документы</div><h2 class="h2" data-lang="cert.h2">Сертификаты и дипломы</h2><p class="sub" data-lang="cert.sub">Моя квалификация и подтверждение профессиональных навыков</p></div>
+    <div class="cert-g">
+      <div class="cert-c fu">
+        <img src="images/WhatsApp Image 2026-03-23 at 16.21.15.jpeg" alt="Сертификат 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+      </div>
+      <div class="cert-c fu" style="--dl:.1s">
+        <img src="images/WhatsApp Image 2026-03-23 at 16.22.23.jpeg" alt="Сертификат 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+      </div>
+      <div class="cert-c fu" style="--dl:.2s">
+        <img src="images/WhatsApp Image 2026-03-23 at 16.22.47.jpeg" alt="Сертификат 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+      </div>
+      <div class="cert-c fu" style="--dl:.3s">
+        <img src="images/WhatsApp Image 2026-03-23 at 16.23.08.jpeg" alt="Сертификат 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:0 0 96px">
+  <div class="wrap">
+    <div class="cta-box fu">
+      <div class="cta-box-in">
+        <div class="lbl lbl-lt" data-lang="cta.1.lbl">Запись</div>
+        <h2 class="cta-ttl" data-lang="cta.2.h2">Записаться к врачу</h2>
+        <p class="cta-sub" data-lang="cta.2.sub">Получите профессиональную консультацию и персональный план лечения.</p>
+        <div class="cta-row">
+          <a href="contacts.html" class="btn btn-wh btn-lg" data-lang="cta.2.online">Записаться онлайн</a>
+          <a href="https://wa.me/77001234567" target="_blank" class="btn btn-wa btn-lg"><svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-g">
+      <div><a href="index.html" class="logo"><img src="images/WhatsApp Image 2026-03-22 at 16.48.15 (1).jpeg" alt="Логотип клиники" style="height: 40px; margin-right: 8px; border-radius: 8px;"><span class="logo-t">Уролог<em>Про</em></span></a><p class="ftr-desc" data-lang="ftr.desc">Современное лечение мочекаменной болезни без операций. Ударно-волновая литотрипсия в Алматы.</p></div>
+      <div class="ftr-col"><h5 data-lang="ftr.nav.title">Навигация</h5><a href="index.html" data-lang="nav.home">Главная</a><a href="services.html" data-lang="nav.services">Услуги</a><a href="about.html" data-lang="nav.about">О враче</a><a href="contacts.html" data-lang="nav.contacts">Контакты</a></div>
+      <div class="ftr-col"><h5 data-lang="ftr.svc.title">Услуги</h5><a href="services.html" data-lang="ftr.svc.1">Литотрипсия</a><a href="services.html" data-lang="ftr.svc.2">Диагностика</a><a href="services.html" data-lang="ftr.svc.3">Консультация</a></div>
+      <div class="ftr-col"><h5 data-lang="ftr.con.title">Контакты</h5><a href="tel:+77772440000">+7 (777) 244-00-00</a><a href="https://wa.me/77772440000" target="_blank">WhatsApp</a><a href="contacts.html" data-lang="con.addr.val">г. Алматы, Карасай Батыра 152, 10 этаж, кабинет 1005</a></div>
+    </div>
+    <div class="ftr-bot">
+      <p class="ftr-copy" data-lang="ftr.copy1">© 2024 Сакенов Ерлан Дауренбекович. Все права защищены.</p>
+      <p class="ftr-copy" data-lang="ftr.copy2">Пн–Пт 9:00–18:00 · Сб 9:00–14:00</p>
+      <a href="https://share.google/wxDigkNDbM6Hf5PQi" target="_blank" class="sundet-link" title="Поделиться в sundet.kz">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="#0B1F3A" stroke-width="2"/>
+          <path d="M12 8v8m-4-4h8" stroke="#0B1F3A" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>sundet.kz</span>
+      </a>
+    </div>
+  </div>
+</footer>
+<a href="https://wa.me/77772440000" target="_blank" class="wa-btn" aria-label="WhatsApp"><svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script src="main.js"></script>
+<script src="lang.js"></script>
+</body>
+</html>
